@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA-style poster covers from your photos</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="brandbar">
+  <div class="brandmark" aria-hidden="true">
+    <svg viewBox="0 0 48 48" width="34" height="34"><circle cx="24" cy="24" r="21" fill="none" stroke="#fdfdf8" stroke-width="2.4"/><circle cx="24" cy="24" r="16.5" fill="none" stroke="#ff2d78" stroke-width="1.6"/><path d="M24 13l3.3 7.1 7.7.8-5.7 5.2 1.6 7.6L24 29.9l-6.9 3.8 1.6-7.6L13 20.9l7.7-.8z" fill="#ffc46b"/></svg>
+  </div>
+  <div class="brandtext">
+    <h1>Vice Cover Studio</h1>
+    <p>Your photos, cut into a GTA-style poster cover. Everything happens in this browser — nothing is uploaded.</p>
+  </div>
+</header>
+
+<main class="studio">
+  <aside class="controls">
+    <section class="control-group" id="photosGroup">
+      <h2>1 · Photos</h2>
+      <div class="tray" id="photoTray"></div>
+      <label class="add-photo">
+        <input id="photoInput" type="file" accept="image/*" multiple>
+        <span>+ Add your photos</span>
+      </label>
+      <p class="hint">Click a photo to drop it into the selected panel. Your photos are read on this machine only.</p>
+    </section>
+
+    <section class="control-group" id="panelsGroup">
+      <h2>2 · Panels</h2>
+      <div class="panel-list" id="panelList"></div>
+      <label class="toggle"><input id="spreadToggle" type="checkbox"> One photo across every panel</label>
+      <div class="zoom-row">
+        <label for="zoomRange">Zoom</label>
+        <input id="zoomRange" type="range" min="1" max="4" step="0.01" value="1">
+        <button id="resetPanel" type="button">Reset</button>
+      </div>
+      <p class="hint">Drag a photo inside its panel to position it; scroll over the cover to zoom; double-click a panel to swap its photo.</p>
+    </section>
+
+    <section class="control-group" id="layoutGroup">
+      <h2>3 · Layout &amp; grade</h2>
+      <div class="picker" id="layoutPicker"></div>
+      <div class="picker" id="gradePicker"></div>
+    </section>
+
+    <section class="control-group" id="captionGroup">
+      <h2>4 · Caption</h2>
+      <label class="field">Title <input id="captionTitle" type="text" maxlength="42" value="SUNSET BANDIT"></label>
+      <label class="field">Tagline <input id="captionTagline" type="text" maxlength="48" value="VICE COVER STUDIO PRESENTS"></label>
+    </section>
+
+    <section class="control-group" id="exportGroup">
+      <h2>5 · Post size &amp; export</h2>
+      <div class="picker" id="sizePicker"></div>
+      <button id="exportButton" type="button">Export PNG</button>
+      <p id="statusLine" role="status"></p>
+    </section>
+  </aside>
+
+  <section class="stage-wrap">
+    <canvas id="stage" width="1000" height="1000" aria-label="Live preview of your poster cover"></canvas>
+    <p class="stage-hint">Live preview — the export is rendered fresh at full size.</p>
+  </section>
+</main>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
